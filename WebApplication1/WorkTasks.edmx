@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="WorkTasksModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="WorkTask">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TaskName" Type="varchar" MaxLength="50" />
+          <Property Name="TaskDescription" Type="varchar" MaxLength="150" />
+          <Property Name="TaskDueDate" Type="date" />
+          <Property Name="TaskCreatedDate" Type="date" />
+          <Property Name="TaskCreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="TaskModifiedDate" Type="date" />
+          <Property Name="TaskModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="TaskStatus" Type="varchar" MaxLength="50" />
+          <Property Name="TaskPriority" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="WorkTasksModelStoreContainer">
+          <EntitySet Name="WorkTask" EntityType="Self.WorkTask" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WorkTasksModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="WorkTask">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="TaskName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TaskDescription" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="TaskDueDate" Type="DateTime" Precision="0" />
+          <Property Name="TaskCreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="TaskCreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TaskModifiedDate" Type="DateTime" Precision="0" />
+          <Property Name="TaskModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TaskStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TaskPriority" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="WorkTasksCS" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="WorkTasks" EntityType="Self.WorkTask" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="WorkTasksModelStoreContainer" CdmEntityContainer="WorkTasksCS">
+          <EntitySetMapping Name="WorkTasks">
+            <EntityTypeMapping TypeName="WorkTasksModel.WorkTask">
+              <MappingFragment StoreEntitySet="WorkTask">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TaskName" ColumnName="TaskName" />
+                <ScalarProperty Name="TaskDescription" ColumnName="TaskDescription" />
+                <ScalarProperty Name="TaskDueDate" ColumnName="TaskDueDate" />
+                <ScalarProperty Name="TaskCreatedDate" ColumnName="TaskCreatedDate" />
+                <ScalarProperty Name="TaskCreatedBy" ColumnName="TaskCreatedBy" />
+                <ScalarProperty Name="TaskModifiedDate" ColumnName="TaskModifiedDate" />
+                <ScalarProperty Name="TaskModifiedBy" ColumnName="TaskModifiedBy" />
+                <ScalarProperty Name="TaskStatus" ColumnName="TaskStatus" />
+                <ScalarProperty Name="TaskPriority" ColumnName="TaskPriority" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
