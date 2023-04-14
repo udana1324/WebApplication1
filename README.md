@@ -1,4 +1,4 @@
-Register first before log in
+Register first before log in <br>
 Login with registered credentials after 
 Click Create New to create new Tasks
 Click on Edit when you want to modify the existing task
